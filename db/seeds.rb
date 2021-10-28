@@ -28,20 +28,21 @@ end
     last_name: Faker::Name.last_name,
   )
 end
-10.times do
+10.times do |i|
+  specialties = ["Dentiste", "Chirurgien", "Vétérinaire", "Généraliste", "Anesthésiste", "Cardiologue", "Pharmacien", "Psychiatre", "Dermatologue", "Ophtalmologue"]
   Specialty.create!(
-    name: "dentiste" 
+    name: specialties[i]
   )
 end
 doctor =Doctor.all
 patient = Patient.all
-specialties = Specialty.all
+specialties_arrays = Specialty.all
 10.times do |i|
   Appointment.create(date:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now) , 
                       doctor:doctor[rand(0...doctor.length)], 
                       patient:patient[rand(0...patient.length)],
                     )
                   end
-Diplome.create!(doctor:doc[rand(0...doc.length)], specialty:specialties)
+Diplome.create!(doctor:doctor[rand(0...doctor.length)], specialty:specialties_arrays)
                 
                 
