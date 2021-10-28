@@ -1,5 +1,5 @@
 class Appointment < ApplicationRecord
-  belongs_to :patient
-  belongs_to :doctor
+  belongs_to :patient,optional: true
+  belongs_to :doctor,optional: true
 
 end
