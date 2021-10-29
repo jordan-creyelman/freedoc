@@ -12,7 +12,7 @@ require 'faker'
 #     name: Faker::Address.city
 #   )
 # end
-
+specialties = ["Dentiste", "Chirurgien", "Vétérinaire", "Généraliste", "Anesthésiste", "Cardiologue", "Pharmacien", "Psychiatre", "Dermatologue", "Ophtalmologue"]
 10.times do 
   doctor = Doctor.create!(
     first_name: Faker::Name.first_name, 
@@ -28,12 +28,12 @@ end
     last_name: Faker::Name.last_name,
   )
 end
-10.times do |i|
-  specialties = ["Dentiste", "Chirurgien", "Vétérinaire", "Généraliste", "Anesthésiste", "Cardiologue", "Pharmacien", "Psychiatre", "Dermatologue", "Ophtalmologue"]
-  Specialty.create!(
-    name: specialties[i]
-  )
-end
+# 10.times do |i|
+
+#   Specialty.create!(
+#     name: specialties[i]
+#   )
+# end
 doctor =Doctor.all
 patient = Patient.all
 specialties_arrays = Specialty.all
@@ -43,6 +43,6 @@ specialties_arrays = Specialty.all
                       patient:patient[rand(0...patient.length)],
                     )
                   end
-Diplome.create!(doctor:doctor[rand(0...doctor.length)], specialty:specialties_arrays)
+# Diplome.create!(doctor:doctor[rand(0...doctor.length)], specialty:specialties_arrays)
                 
                 
